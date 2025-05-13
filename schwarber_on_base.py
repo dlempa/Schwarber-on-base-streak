@@ -56,7 +56,7 @@ for reached in df['reached_base']:
         break
 
 st.header(f" Current On-Base Streak: {streak} games")
-st.write(f"Streak spans {seasons[0]} and {seasons[-1]} seasons.")
+st.write(f"Streak spans {seasons[0]} and {seasons[-1]} regular seasons.")
 st.write(f"Updated as of: {datetime.now().strftime('%Y-%m-%d')}")
 
 if st.checkbox("Show game logs"):
