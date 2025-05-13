@@ -19,3 +19,7 @@ This Streamlit web app tracks Philadelphia Phillies hitter **Kyle Schwarber's co
 ### **1. Clone the Repository**
 
 git clone https://github.com/dlempa/Schwarber-on-base-streak.git
+
+⚠️ **Data Disclaimer**:  
+This app uses data sourced from the **unofficial MLB Stats API**. It is provided for informational and educational purposes only. Data availability, accuracy, and timeliness depend entirely on MLB's API and are not guaranteed. MLB holds all rights to the underlying data.
+
