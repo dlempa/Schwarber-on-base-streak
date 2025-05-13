@@ -168,7 +168,7 @@ schwarber_row = df_streaks[df_streaks['name']=='Kyle Schwarber']
 schwarber_rank = schwarber_row.index[0] + 1
 
 st.subheader("All-Time On-Base Streaks")
-st.write(f"Schwarber currently ranks number {schwarber_rank} all-time in consecutive games reaching base safely.")
+st.write(f"Schwarber currently ranks number {schwarber_rank} all-time in consecutive regular season games reaching base safely.")
 st.dataframe(styled_df, use_container_width=True,hide_index=True)
 
 
