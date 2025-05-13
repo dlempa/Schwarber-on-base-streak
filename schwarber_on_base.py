@@ -60,7 +60,7 @@ st.write(f"Streak spans {seasons[0]} and {seasons[-1]} seasons.")
 st.write(f"Updated as of: {datetime.now().strftime('%Y-%m-%d')}")
 
 if st.checkbox("Show recent game logs"):
-    st.dataframe(df[['date', 'season', 'opponent', 'hits', 'walks', 'HBP', 'reached_base']].head(15))
+    st.dataframe(df[['date', 'season', 'opponent', 'hits', 'walks', 'HBP', 'reached_base']].head(streak))
 
 st.markdown("""
 ---
