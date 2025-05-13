@@ -22,8 +22,15 @@ def get_game_logs(player_id, seasons):
         }
         response = requests.get(url, params=params)
         data = response.json()
-        logs.extend(data['stats'][0]['splits'])
+
+        # Check if the expected data is available
+        if data.get('stats') and len(data['stats']) > 0 and 'splits' in data['stats'][0]:
+            logs.extend(data['stats'][0]['splits'])
+        else:
+            st.warning(f"No game log data available yet for the {season} season.")
+
     return logs
+
 
 # Fetch logs for both seasons
 game_logs = get_game_logs(player_id, seasons)
