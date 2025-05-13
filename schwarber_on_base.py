@@ -59,7 +59,7 @@ st.header(f" Current On-Base Streak: {streak} games")
 st.write(f"Streak spans {seasons[0]} and {seasons[-1]} seasons.")
 st.write(f"Updated as of: {datetime.now().strftime('%Y-%m-%d')}")
 
-if st.checkbox("Show recent game logs"):
+if st.checkbox("Show game logs"):
     st.dataframe(df[['date', 'season', 'opponent', 'hits', 'walks', 'HBP', 'reached_base']].head(streak))
 
 st.markdown("""
