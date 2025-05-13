@@ -63,6 +63,12 @@ st.header(f"📅 Current On-Base Streak: {streak} games")
 st.write(f"Streak spans {seasons[0]} and {seasons[-1]} seasons.")
 st.write(f"Updated as of: {datetime.now().strftime('%Y-%m-%d')}")
 
-# Optionally show recent games across seasons
+# show recent games across seasons
 if st.checkbox("Show recent game logs"):
     st.dataframe(df[['date', 'season', 'opponent', 'hits', 'walks', 'HBP', 'reached_base']].head(15))
+
+st.markdown("""
+---
+⚠️ **Data Disclaimer**:  
+This app uses data sourced from the **unofficial MLB Stats API**. It is provided for informational and educational purposes only. Data availability, accuracy, and timeliness depend entirely on MLB's API and are not guaranteed. MLB holds all rights to the underlying data.
+""")
