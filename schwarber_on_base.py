@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 from datetime import datetime
 
-st.title("🔥 Kyle Schwarber's Multi-Season On-Base Streak Tracker")
+st.title("🔥 Kyle Schwarber On-Base Streak Tracker")
 
 player_id = 656941
 seasons = [2024, 2025]
