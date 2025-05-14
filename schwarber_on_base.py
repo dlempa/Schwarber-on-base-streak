@@ -48,15 +48,6 @@ def load_streak():
                 "games": [],
                 "final_rank": None
             }
-    return {
-        "status": "active",
-        "streak": 0,
-        "start_date": None,
-        "end_date": None,
-        "games": [],
-        "final_rank": None
-    }
-
 
 def save_streak(data):
     with open(STREAK_FILE, 'w') as f:
