@@ -24,11 +24,12 @@ def get_game_logs(player_id, seasons):
         }
         response = requests.get(url, params=params)
         data = response.json()
+        
+if 'stats' in data and len(data['stats']) > 0 and 'splits' in data['stats'][0]:
+    logs.extend(data['stats'][0]['splits'])
+else:
+    st.warning(f"No game log data returned for season {season}.")
 
-        if 'stats' in data and data['stats'] and 'splits' in data['stats'][0]:
-            logs.extend(data['stats'][0]['splits'])
-        else:
-            st.warning(f"No game log data available yet for the {season} season.")
             
     return logs
 
@@ -90,6 +91,9 @@ def build_logs(game_logs):
 
 logs = build_logs(game_logs)
 df = pd.DataFrame(logs)
+for col in ['hits', 'walks', 'HBP']:
+    if col not in df.columns:
+        df[col] = 0
 df['reached_base'] = (df['hits'] + df['walks'] + df['HBP']) > 0
 df = df.sort_values(by='date', ascending=False).reset_index(drop=True)
 
