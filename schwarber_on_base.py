@@ -90,10 +90,15 @@ def build_logs(game_logs):
 
 
 logs = build_logs(game_logs)
+
 df = pd.DataFrame(logs)
+
 for col in ['hits', 'walks', 'HBP']:
     if col not in df.columns:
         df[col] = 0
+
+df = df[df['isComplete'] == True]
+        
 df['reached_base'] = (df['hits'] + df['walks'] + df['HBP']) > 0
 df = df.sort_values(by='date', ascending=False).reset_index(drop=True)
 
