@@ -63,16 +63,17 @@ def is_game_final(game_pk):
 game_logs = get_game_logs(player_id, seasons)
 logs = []
 
+@st.cache_data(show_spinner=True)
 def build_logs(game_logs):
     logs = []
     for i, game in enumerate(game_logs):
         game_pk = game['game']['gamePk']
         game_date = game['date']
 
-        # Check live game status before including
-        if not is_game_final(game_pk):
-            st.info(f"Game on {game_date} (gamePk {game_pk}) is still in progress and was excluded from streak calculation.")
-            continue  # Skip in-progress games
+        # Skip only the first game (most recent) if it's not final
+        if i == 0 and not is_game_final(game_pk):
+            st.info(f"Game on {game_date} (gamePk {game_pk}) is still in progress and was excluded.")
+            continue
 
         stats = game['stat']
         logs.append({
