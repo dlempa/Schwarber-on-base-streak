@@ -35,19 +35,16 @@ def get_game_logs(player_id, seasons):
 
 def load_streak():
     if os.path.exists(STREAK_FILE):
-        try:
-            with open(STREAK_FILE, 'r') as f:
-                return json.load(f)
-        except (json.JSONDecodeError, ValueError):
-            st.warning("⚠️ Corrupt or empty streak file detected. Resetting streak data.")
-            return {
-                "status": "active",
-                "streak": 0,
-                "start_date": None,
-                "end_date": None,
-                "games": [],
-                "final_rank": None
-            }
+        with open(STREAK_FILE, 'r') as f:
+            return json.load(f)
+    return {
+        "status": "active",
+        "streak": 0,
+        "start_date": None,
+        "end_date": None,
+        "games": [],
+        "final_rank": None
+    }
 
 def save_streak(data):
     with open(STREAK_FILE, 'w') as f:
