@@ -105,7 +105,7 @@ for reached in df['reached_base']:
 
 saved_data = load_streak()
 
-if saved_data["status"] == "active" and current_streak < saved_data["streak"] and current_streak != 0:
+if saved_data["status"] == "active" and current_streak < saved_data["streak"]:
     saved_data.update({
         "status": "ended",
         "end_date": df.iloc[0]["date"],
