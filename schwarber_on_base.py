@@ -12,7 +12,7 @@ player_id = 656941
 seasons = [2024, 2025]
 STREAK_FILE = "schwarber_streak.json"
 
-@st.cache_data(show_spinner=True)
+
 def get_game_logs(player_id, seasons):
     logs = []
     for season in seasons:
